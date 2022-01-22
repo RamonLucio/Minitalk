@@ -6,7 +6,7 @@
 #    By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 13:12:56 by rlucio-l          #+#    #+#              #
-#    Updated: 2022/01/21 21:01:58 by rlucio-l         ###   ########.fr        #
+#    Updated: 2022/01/22 11:33:42 by rlucio-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CLIENT_OBJ = $(CLIENT_SRC:.c=.o)
 SERVER_OBJ = $(SERVER_SRC:.c=.o)
 
 CC = gcc
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror -I./include
 
 .c.o :
 	$(CC) ${CFLAGS} -c $< -o ${<:.c=.o}
