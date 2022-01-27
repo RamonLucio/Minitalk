@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 13:07:09 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/01/27 14:21:49 by rlucio-l         ###   ########.fr       */
+/*   Created: 2021/08/24 16:31:27 by rlucio-l          #+#    #+#             */
+/*   Updated: 2022/01/27 14:30:52 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include "../libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include	<unistd.h>
+
+int		ft_atoi(const char *str);
+int		ft_isdigit(int c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+
 #endif

@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 13:07:09 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/01/27 14:21:49 by rlucio-l         ###   ########.fr       */
+/*   Created: 2021/08/26 10:42:48 by rlucio-l          #+#    #+#             */
+/*   Updated: 2021/08/30 15:37:00 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include "../libft/libft.h"
-# include <signal.h>
-# include <stdlib.h>
-#endif
+#include "libft.h"
+
+/*
+** DESCRIPTION
+** 		Outputs the string ’s’ to the given file
+** 		descriptor, followed by a newline.
+*/
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	char	new_line;
+
+	new_line = '\n';
+	ft_putstr_fd(s, fd);
+	write(fd, &new_line, 1);
+}
