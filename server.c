@@ -6,7 +6,7 @@
 /*   By: rlucio-l <rlucio-l@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 20:47:48 by rlucio-l          #+#    #+#             */
-/*   Updated: 2022/02/03 19:08:42 by rlucio-l         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:52:18 by rlucio-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 static void	signal_handler(int sig, siginfo_t *siginfo, void *ucontext)
 {
+	static char	ch;
+	static int	bit = 7;
+
 	if (sig == SIGUSR1)
+		ch |= 1 << bit;
+	bit--;
+	if (bit == -1)
 	{
-		ft_putstr_fd("1", 1);
-		kill(siginfo->si_pid, SIGUSR1);
+		write(1, &ch, 1);
+		ch = 0;
+		bit = 7;
 	}
-	if (sig == SIGUSR2)
-	{
-		ft_putstr_fd("0", 1);
-		kill(siginfo->si_pid, SIGUSR1);
-	}
+	kill(siginfo->si_pid, SIGUSR1);
 	(void) ucontext;
-	return ;
 }
 
 int	main(void)
