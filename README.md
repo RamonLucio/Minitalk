@@ -394,11 +394,12 @@ _Your server should be able to receive strings from several clients in a row **w
 #include <unistd.h>
 
 int	pause(void);
-
 // Always returns –1 with errno set to EINTR
+```
 
 Server loop forever, waiting for signals.
 
+```C
 static void	signal_handler(int sig, siginfo_t *siginfo, void *ucontext)
 {
 	if (sig == SIGUSR1)
@@ -533,7 +534,7 @@ _You can have one **global variable** per program (one for the client and one fo
 > Reading and writing global variables may involve more than one machine-language instruction, and a signal handler may interrupt the main program in the middle of such an instruction sequence. (We say that access to the variable is _nonatomic_.) For this reason, the C language standards and SUSv3 specify an integer data type, sig_atomic_t, for which reads and writes are guaranteed to be atomic. Thus, a global flag variable that is shared between the main program and a signal handler should be declared as follows:
 
 ```C
-	volatile sig_atomic_t flag;
+volatile sig_atomic_t flag;
 ```
 
 The client stops sending signals until the server acknowledges the last received signal.
